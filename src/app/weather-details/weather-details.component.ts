@@ -8,8 +8,7 @@ import {
 import { WeatherService } from '../services/weather.service';
 import { Routes } from 'src/enums/routes';
 import { ApiResponse } from 'src/models/ApiResponse';
-import { Coord, WeatherDetails } from 'src/models/WeatherDetails';
-import { environment } from 'src/environments/environment';
+import { WeatherDetails } from 'src/models/WeatherDetails';
 
 @Component({
   selector: 'app-weather-details',
@@ -19,6 +18,7 @@ import { environment } from 'src/environments/environment';
 export class WeatherDetailsComponent implements OnInit, OnChanges {
   @Input() coordinates: { lon: number; lat: number } | undefined;
   weatherDetails: WeatherDetails = {} as WeatherDetails;
+  isLoading: boolean = false;
 
   constructor(private weatherService: WeatherService) {}
 
@@ -33,13 +33,15 @@ export class WeatherDetailsComponent implements OnInit, OnChanges {
   }
 
   private getWeatherData(): void {
+    this.isLoading = true;
     this.weatherService
       .getWeatherData(
-        environment.apiUrl + Routes.GET_WEATHER_DATA,
+        Routes.GET_WEATHER_DATA,
         this.coordinates ? this.coordinates : { lon: 79.8816, lat: 6.773 }
       )
       .subscribe((res: ApiResponse) => {
         this.weatherDetails = res.data ? res.data : ({} as WeatherDetails);
+        this.isLoading = false;
       });
   }
 }
