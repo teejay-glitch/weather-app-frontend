@@ -9,6 +9,7 @@ import { WeatherService } from '../services/weather.service';
 import { Routes } from 'src/enums/routes';
 import { ApiResponse } from 'src/models/ApiResponse';
 import { Coord, WeatherDetails } from 'src/models/WeatherDetails';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-weather-details',
@@ -34,7 +35,7 @@ export class WeatherDetailsComponent implements OnInit, OnChanges {
   private getWeatherData(): void {
     this.weatherService
       .getWeatherData(
-        Routes.GET_WEATHER_DATA,
+        environment.apiUrl + Routes.GET_WEATHER_DATA,
         this.coordinates ? this.coordinates : { lon: 79.8816, lat: 6.773 }
       )
       .subscribe((res: ApiResponse) => {
