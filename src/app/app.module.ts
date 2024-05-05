@@ -6,10 +6,9 @@ import { AppComponent } from './app.component';
 import { WeatherDetailsComponent } from './weather-details/weather-details.component';
 import { WeatherService } from './services/weather.service';
 import { ApiService } from './services/api.service';
-import { ButtonSectionComponent } from './button-section/button-section.component';
 
 @NgModule({
-  declarations: [AppComponent, WeatherDetailsComponent, ButtonSectionComponent],
+  declarations: [AppComponent, WeatherDetailsComponent],
   imports: [BrowserModule, HttpClientModule],
   providers: [ApiService, WeatherService],
   bootstrap: [AppComponent],

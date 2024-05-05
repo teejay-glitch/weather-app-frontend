@@ -1,1 +1,35 @@
-<app-weather-details></app-weather-details>
+<div class="col-12 p-3">
+  <div class="d-flex justify-content-center">
+    <button
+      class="btn btn-primary mx-2"
+      (click)="getCityCoordinates(79.8816, 6.773)"
+    >
+      Moratuwa
+    </button>
+    <button
+      class="btn btn-primary mx-2"
+      (click)="getCityCoordinates(144.946457, -37.840935)"
+    >
+      Melbourne
+    </button>
+    <button
+      class="btn btn-primary mx-2"
+      (click)="getCityCoordinates(-73.935242, 40.73061)"
+    >
+      New York
+    </button>
+    <button
+      class="btn btn-primary mx-2"
+      (click)="getCityCoordinates(-96.808891, 32.779167)"
+    >
+      Dallas
+    </button>
+    <button
+      class="btn btn-primary mx-2"
+      (click)="getCityCoordinates(77.216721, 28.6448)"
+    >
+      Delhi
+    </button>
+  </div>
+</div>
+<app-weather-details [coordinates]="coordinates"></app-weather-details>
