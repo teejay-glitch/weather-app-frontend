@@ -1,0 +1,13 @@
+.main-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 450px;
+  border: 1px solid;
+  border-radius: 10px;
+  background: grey;
+}
+
+.wrapper {
+  padding: 10px;
+}
